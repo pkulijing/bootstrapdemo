@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/disr/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap-social.css">
   <link rel="stylesheet" href="css/mystyles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -201,6 +202,14 @@
             <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </a>
+            <div class="btn-group" id="carouselButtons">
+              <button class="btn btn-danger btn-xs" id="carousel-pause">
+                <span class="glyphicon glyphicon-pause"></span>
+              </button>
+              <button class="btn btn-danger btn-xs" id="carousel-play">
+                <span class="glyphicon glyphicon-play"></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -307,12 +316,19 @@
             </div>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
     $(document).ready(function() {
-      $('[data-toggle="tooltip"]').tooltip();
+      $("#mycarousel").carousel({interval:2000});;
+      $("#carousel-pause").click(function(){
+        $("#mycarousel").carousel("pause");
+      });
+      $("#carousel-play").click(function() {
+        $("#mycarousel").carousel("cycle");
+      });
     });
+
     </script>
 </body>
 
